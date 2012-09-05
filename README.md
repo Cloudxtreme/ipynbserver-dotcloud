@@ -5,7 +5,7 @@
 
 Get a [dotCloud](www.dotcloud.com) account and dowload the cli dotcloud
 
-    git clone git://github.com/shoibalc/ipynbserver.git
+    git clone git://github.com/shoibalc/ipynbserver-dotcloud.git
 
 Follow http://ipython.org/ipython-doc/dev/interactive/htmlnotebook.html#security in your local IPython to generate
 a hashed passwd in /nbserver/postinstall in the line.
