@@ -1,6 +1,0 @@
-{
-    "push_branch": "master", 
-    "application": "ipynbserver", 
-    "version": "0.9.1", 
-    "push_protocol": "git"
-}
