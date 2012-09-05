@@ -16,7 +16,7 @@ a hashed passwd in /nbserver/postinstall in the line.
 Create and push the repository
     
     dotcloud create ipynbserver
-    dotcloud push ipynbserver ipynbserver/
+    dotcloud push ipynbserver ipynbserver-dotcloud
 
 
 Enjoy!
