@@ -1,0 +1,5 @@
+tornado
+pyzmq
+ipython
+#numpy
+#matplotlib

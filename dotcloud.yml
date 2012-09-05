@@ -1,0 +1,12 @@
+www:
+  approot: nbserver
+  type: custom
+  systempackages:
+    - python-matplotlib
+    - python-scipy
+  environment: 
+    IPYTHONDIR: /home/dotcloud/.config/.ipython/
+    MPLCONFIGDIR: /home/dotcloud/.config/.matplotlib/
+  buildscript: nbserver/builder
+  ports:
+    web: http

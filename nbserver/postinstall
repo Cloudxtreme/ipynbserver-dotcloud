@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#export IPYTHONDIR="/home/dotcloud/.ipython/"
+#export MPLCONFIGDIR="/home/dotcloud/.matplotlib"
+echo `env|grep PORT`
+
+echo "Creating the ipython_notebook_congif.py file in  the 
+profile directory $IPYTHONDIR/profile_nbserver."
+
+echo "
+# from http://ipython.org/ipython-doc/dev/interactive/htmlnotebook.html
+c = get_config()
+
+# Kernel config
+c.IPKernelApp.pylab = 'inline'  # if you want plotting support always
+
+# Notebook config
+#c.NotebookApp.certfile = u'/absolute/path/to/your/certificate/mycert.pem'
+c.NotebookApp.ip = \"*\"
+c.NotebookApp.open_browser = False
+c.NotebookApp.password = u'sha1:cf1194781281:4e378d76d190a38e8860745f3ad3beb98468feb3'
+
+# It's a good idea to put it on a known, fixed port
+c.NotebookApp.port = $PORT_WEB
+" > $IPYTHONDIR/profile_nbserver/ipython_notebook_config.py
+
+

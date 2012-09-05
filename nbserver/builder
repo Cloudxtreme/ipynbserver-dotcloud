@@ -1,0 +1,40 @@
+#!/bin/bash
+
+echo 'Checking for  a python virtualenv in ~/nbserver/virtenv...'
+if [ ! -d "/home/dotcloud/nbserver/virtenv" ]; then
+	echo '~/nbserver/virtenv not found. Installing it...'
+	virtualenv ~/nbserver/virtenv
+else
+	echo 'Python virtualenv  ~/virtenv found.'
+fi
+
+echo 'Activating and pip installing from requirements.txt...'
+source ~/nbserver/virtenv/bin/activate
+pip install -r ./requirements.txt
+
+#export IPYTHONDIR="/home/dotcloud/.config/.ipython/"
+#export MPLCONFIGDIR="/home/dotcloud/.config/.matplotlib"
+
+echo 'Checking for ipython and matplotlib configuration directories...'
+if [ ! -d $IPYTHONDIR ]; then
+	echo 'Installing ipython and matplotlib configuration directories...'
+	mkdir $HOME/.config	
+	mkdir $IPYTHONDIR
+	mkdir $MPLCONFIGDIR
+else
+	echo 'Found configuration directories.'
+fi
+
+echo 'Checking for .ipython/profile_nbserver profile directory...'
+if [ ! -d "$IPYTHONDIR/profile_nbserver" ]; then
+	echo 'Profile not found. Creating profile directory...'
+	ipython profile create nbserver
+else
+	echo 'Profile directory found.'
+fi
+deactivate
+
+echo  "home directory: $HOME"
+echo "Installing run script and copying requirements.txt files"
+cp  ./nbserver/* $HOME/nbserver
+cp supervisor.conf $HOME
